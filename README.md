@@ -1,4 +1,4 @@
-# Newsletter-System-using-Google-Workspace-FREE-
+<img width="1440" alt="Screenshot 2024-09-15 at 4 55 11 PM" src="https://github.com/user-attachments/assets/61182a16-f99c-4dbb-b87d-2c2390488485"># Newsletter-System-using-Google-Workspace-FREE-
 
 ## Overview
 This project is a **Newsletter System** that leverages **Google Sheets** to manage subscriber information and send email newsletters. It's designed to be simple, easy to use, and effective for maintaining a small to medium-sized newsletter.
@@ -18,3 +18,19 @@ This project is a **Newsletter System** that leverages **Google Sheets** to mana
 Google App Script Library Required
 ```bash
 1XHgOqNIXoRxmM7StfIoxxqTVNoEVNpO46UsSSZdXZI4fezxCRIpSYHtB
+```
+
+
+## Sheet Formate
+
+<img width="1440" alt="Screenshot 2024-09-15 at 4 55 11 PM" src="https://github.com/user-attachments/assets/12cf8401-81b7-4eb0-908b-01d02980d0d0">
+
+<img width="1440" alt="Screenshot 2024-09-15 at 4 55 16 PM" src="https://github.com/user-attachments/assets/aafbc7c4-36d2-4501-a8e0-cade63bebb9d">
+
+<img width="1440" alt="Screenshot 2024-09-15 at 4 55 21 PM" src="https://github.com/user-attachments/assets/898b2c8b-6c76-4ae8-8609-918152cdab6c">
+
+<img width="1440" alt="Screenshot 2024-09-15 at 4 55 25 PM" src="https://github.com/user-attachments/assets/0c2ff087-8606-445b-bb98-9073e5568bed">
+
+
+
+
