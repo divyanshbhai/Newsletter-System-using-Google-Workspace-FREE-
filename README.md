@@ -1,4 +1,4 @@
-<img width="1440" alt="Screenshot 2024-09-15 at 4 55 11 PM" src="https://github.com/user-attachments/assets/61182a16-f99c-4dbb-b87d-2c2390488485"># Newsletter-System-using-Google-Workspace-FREE-
+# Newsletter-System-using-Google-Workspace-FREE-
 
 ## Overview
 This project is a **Newsletter System** that leverages **Google Sheets** to manage subscriber information and send email newsletters. It's designed to be simple, easy to use, and effective for maintaining a small to medium-sized newsletter.
