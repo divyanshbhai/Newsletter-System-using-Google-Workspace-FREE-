@@ -4,7 +4,7 @@
 This project is a **Newsletter System** that leverages **Google Sheets** to manage subscriber information and send email newsletters. It's designed to be simple, easy to use, and effective for maintaining a small to medium-sized newsletter.
 
 ## Features
-- **Subscriber Management**: Add, remove, or update subscriber information via Google Sheets.
+- **Webapp Based Management**: Add, remove, or update newsletter information via Google Sheets.
 - **Automated Email Sending**: Send out newsletters automatically to subscribers using Google Sheets data.
 - **Easy to Customize**: Modify email templates or content to suit your needs.
 - **Google Apps Script Integration**: Powered by Google Apps Script for seamless integration with Google Sheets.
