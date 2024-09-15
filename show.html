@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<style>
+    .main{
+        max-width: 600px;;
+        padding: 20px;
+        margin-top: 20px;
+        border: none;
+    }
+    .header{
+        text-align: right;
+    }
+    .del{
+      text-align: right;
+    }
+
+    .row{
+      justify-content: space-around;
+    }
+
+    /* HTML: <div class="loader"></div> */
+    .loader {
+    width: 40px;
+    aspect-ratio: .577;
+    clip-path: polygon(0 0,100% 100%,0 100%,100% 0);
+    position: relative;
+    animation: l19 2s infinite linear; 
+    overflow: hidden;
+    
+    }
+    .loader:before{
+    content: "";
+    position: absolute;
+    inset: -150% -150%;
+    background: repeating-conic-gradient(from 30deg,#FFABAB 0 60deg,#ABE4FF 0 120deg,#FF7373 0 180deg);
+    animation: inherit;
+    animation-direction: reverse; 
+    }
+    @keyframes l19 {
+    100% {transform: rotate(360deg)}
+    }
+    .load{
+        z-index: 6;
+        display: none;
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        justify-content: center;
+        align-items: center;
+
+    }
+</style>
+<body onload="fetchNewsletterById(document.getElementById('id').innerText)">
+  <div class="load"><div class="loader"></div></div>
+  <div class="row">
+    <div class="col card main" style="max-width: 800px;">
+      <center>
+        <div class="header"><button onclick="google.script.run.withSuccessHandler(changePage).newPage('index'); load('row');" class="btn btn-outline-info">X</button></div>
+        <h4> Your Newsletter</h4>
+        <br>
+        <form>
+            <input type="text" id="title" class="form-control" placeholder="Title or Subject">
+            <br>
+            <textarea id="htmeditor"></textarea> <script src="https://htmeditor.com/js/htmeditor.min.js"      htmeditor_textarea="htmeditor"        editor_height="480"     run_local="no"> </script> 
+
+            <br><br>
+            <button onclick="updateNewsLetter(); return false;" class="btn btn-primary">Update Newsletter</button>
+        </form>
+        </center>
+    </div>
+
+    <div class="col card main">
+      <div class="del">
+          <button onclick="delLetter();" class="btn btn-danger">Delete</button>
+      </div>
+      <div id="chart_div" style="width: 100%; height: 500px;"></div>
+    </div>
+  </div>
+
+    
+    <script>
+
+        function fetchNewsletterById(id){
+            console.log(id)
+            google.script.run.withSuccessHandler(fetchNewsletterData).getNewsletterById(id);
+            load('row');
+        }
+
+        function delLetter(){
+          if(confirm('Do you really want to delete this newsletter')){
+            google.script.run.withSuccessHandler(changePage).deleteNewsletter(document.getElementById('id').innerText); 
+            load('row');
+          }
+        }
+
+        function fetchNewsletterData(data){
+          let title = document.getElementById('title');
+          title.value = data[2];
+
+          let iframe = document.getElementById('htmeditor_ifr');
+
+            var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            var iframeBody = iframeDoc.body;
+            iframeBody.innerHTML = data[3];
+          
+          showChart(data[4],data[5])
+
+          stopLoad('row')
+
+
+        }
+
+        function updateNewsLetter(){
+            let id = document.getElementById('id').innerText;
+            let title = document.getElementById('title').value;
+            let iframe = document.getElementById('htmeditor_ifr');
+
+            var iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+            var iframeBody = iframeDoc.body;
+            let htmlBody = iframeBody.innerHTML;
+            if(title!=''){
+                google.script.run.withSuccessHandler(changePage).updateNewsletter(id,title, htmlBody);
+                load('row')
+            }else{
+                alert('Please enter the title of newsletter.')
+            }
+
+            return false;
+        }
+    </script>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(initialize);
+
+      function initialize() {
+        // Example data: send = 100, views = 80
+        showChart(100, 80);
+      }
+
+      // Function to display chart based on the send and views values
+      function showChart(send, views) {
+        var data = google.visualization.arrayToDataTable([
+          ['Metric', 'Count'],  // Header
+          ['Send', send],
+          ['Views', views]
+        ]);
+
+        var options = {
+          title: 'Newsletter Sends and Views',
+          hAxis: {
+            title: 'Metric',
+            titleTextStyle: {color: '#333'}
+          },
+          vAxis: {
+            minValue: 0
+          },
+          chartArea: {width: '50%', height: '70%'}
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+        chart.draw(data, options);
+      }
+      
+    </script>
+
+</body>
+</html>
