@@ -35,6 +35,23 @@ Google App Script Library Required
 </table>
 
 
+## Webapp Screenshots
+
+<img width="1430" alt="Screenshot 2024-09-15 at 5 06 53 PM" src="https://github.com/user-attachments/assets/0cb7f181-fcf7-45aa-8b7e-bbb43e7d0bc1">
+<table>
+  <tr>
+    <td><img width="1428" alt="Screenshot 2024-09-15 at 5 07 19 PM" src="https://github.com/user-attachments/assets/85afa633-7e16-4e03-b15b-4d1ae4680073"></td>
+    <td><img width="1423" alt="Screenshot 2024-09-15 at 5 07 45 PM" src="https://github.com/user-attachments/assets/51474dc6-0148-4151-8aae-0f28604226cc"></td>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
 
 
 
